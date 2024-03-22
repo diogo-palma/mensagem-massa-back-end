@@ -1,5 +1,6 @@
-import { Controller, Param } from '@nestjs/common';
+import { Body, Controller, Param } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { Post } from '@nestjs/common'
 
 @Controller('auth')
 export class AuthController {
@@ -9,7 +10,8 @@ export class AuthController {
     // return this.authService.find(id);
   }
 
-  async findAccount(@Param() data: any): Promise<any> {
+  @Post('login')
+  async login(@Body() data: any): Promise<any> {    
     return this.authService.login(data);
   }
 }

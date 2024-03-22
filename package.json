@@ -32,6 +32,7 @@
     "@nestjs/passport": "^10.0.3",
     "@nestjs/platform-express": "^10.0.0",
     "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.2.2",
     "nestjs-seeder": "^0.3.2",
     "reflect-metadata": "^0.1.14",

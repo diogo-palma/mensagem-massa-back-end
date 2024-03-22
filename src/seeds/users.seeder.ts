@@ -17,8 +17,8 @@ export class UsersSeeder implements Seeder {
     const hashedPassword = await bcrypt.hash("123456", 10); 
     const hashedPassword2 = await bcrypt.hash("123456", 10); 
     const users = [
-      { name: 'Admin', email: 'admin@admin.com', password: hashedPassword, role: "admin" },
-      { name: 'Teste', email: 'teste@teste.com',  password: hashedPassword2, role: "user" },      
+      { name: 'Admin', email: 'admin@admin.com', password: hashedPassword, roles: ["admin"] },
+      { name: 'Teste', email: 'teste@teste.com',  password: hashedPassword2, roles: ["user"] },      
     ];
 
     return this.userModel.insertMany(users);

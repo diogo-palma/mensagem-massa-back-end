@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from 'src/user/user.service';
 import * as bcrypt from 'bcrypt';
@@ -48,10 +48,11 @@ export class AuthService {
           access_token: this.jwtService.sign(payload),
         };
       }
-      throw new Error('Erro ao fazer o login');
+      throw new HttpException('Erro ao fazer o login', HttpStatus.FORBIDDEN);
+      
 
     } catch (error) {
-      throw new Error('Erro ao fazer o login: ' + error);
+      throw new HttpException( error, HttpStatus.FORBIDDEN);      
     }
   }
 }

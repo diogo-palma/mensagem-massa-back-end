@@ -13,10 +13,10 @@ export class User extends Document {
   password: string;
 
   @Prop()
-  role: "admin" | "user";
+  roles: string[];
 
-  @Prop({ default: false })
-  active: boolean;
+  @Prop({default: "ACTIVE"})
+  active: "ACTIVE" | "INACTIVATE";
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
